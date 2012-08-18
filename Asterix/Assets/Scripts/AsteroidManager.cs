@@ -5,8 +5,8 @@ public class AsteroidManager : MonoBehaviour {
 
 	GameObject[] enemyBugs;
 
-	static int enemyBugCache = 20;
-	static float randLimit = 95.0f;
+	public int enemyBugCache = 20;
+	public float randLimit = 95.0f;
 	
 	// Use this for initialization
 	void Start () {
@@ -22,7 +22,6 @@ public class AsteroidManager : MonoBehaviour {
 	void Update () {
 		float rand = UnityEngine.Random.Range(0.0f, 100.0f);
 		if(rand > randLimit) {
-			Debug.Log(rand);
 			
 	        for(int i = 0; i < enemyBugs.Length; i++){
 				if(enemyBugs[i].active == false) {
