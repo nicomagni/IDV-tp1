@@ -133,3 +133,7 @@ Asterix/Temp/__EditModeScene
 Asterix/Asterix.sln
 
 Asterix/Asterix-csharp.sln
+
+*.pidb
+
+Asterix/Assembly-CSharp.pidb
