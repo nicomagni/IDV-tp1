@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ShipController : MonoBehaviour {
 	
+	public ParticleSystem mainThrust;
 	public float movementForce = 12;
 	public float breakForce = 1;
 	public float deltaTurn = 1;
@@ -17,8 +18,10 @@ public class ShipController : MonoBehaviour {
 		bool isBreaking = Input.GetButton("Break");
 		
 		if(movement > 0){
-			//float force = Mathf.Sign(movement)* movementForce;
 			rigidbody.AddRelativeForce(0,-movementForce,0);
+			mainThrust.Emit(0);
+		} else {
+			mainThrust.Emit(-1);
 		}
 		
 		if(rotation != 0){
