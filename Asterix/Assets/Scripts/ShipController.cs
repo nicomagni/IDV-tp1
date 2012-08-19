@@ -3,22 +3,32 @@ using System.Collections;
 
 public class ShipController : MonoBehaviour {
 	
-	public float fowardForce = 1;
-	public float breakForce = -1;
-	public float deltaTorque = 1;
+	public float movementForce = 12;
+	public float breakForce = 1;
+	public float deltaTurn = 1;
 	
 	void Update () {
-		float v = Input.GetAxis("Vertical");
-		float h = Input.GetAxis("Horizontal");
-
-		if(v != 0){
-			float force = Mathf.Sign(v) > 0 ? fowardForce : breakForce;
-			rigidbody.AddRelativeForce(0,0,force);
+		updateMovement();
+	}
+	
+	private void updateMovement(){
+		float movement 	= Input.GetAxis("Vertical");
+		float rotation 	= Input.GetAxis("Horizontal");
+		bool isBreaking = Input.GetButton("Break");
+		
+		if(movement > 0){
+			//float force = Mathf.Sign(movement)* movementForce;
+			rigidbody.AddRelativeForce(0,-movementForce,0);
 		}
 		
-		if(h != 0){
-			float torque = Mathf.Sign(h)*deltaTorque;
-			rigidbody.AddRelativeTorque(0,torque,0);
+		if(rotation != 0){
+			float turn = Mathf.Sign(rotation)*deltaTurn;
+			transform.Rotate(0,0,turn);
 		}
-	}
+		
+		if(isBreaking){
+			rigidbody.AddForce(rigidbody.velocity * (-breakForce));
+			rigidbody.AddTorque(rigidbody.angularVelocity * (-breakForce));
+		}
+	}	
 }

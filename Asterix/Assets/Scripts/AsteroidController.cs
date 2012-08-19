@@ -37,7 +37,7 @@ public class AsteroidController : MonoBehaviour {
 		this.transform.position = new Vector3(xPos, 0, zPos);
 				
 		// Choose random torque
-		float torqueLimit = 10.0f;
+		float torqueLimit = 8.0f;
 		xRotation = (float) UnityEngine.Random.Range(-torqueLimit, torqueLimit);
 		yRotation = (float) UnityEngine.Random.Range(-torqueLimit, torqueLimit);
 		zRotation = (float) UnityEngine.Random.Range(-torqueLimit, torqueLimit);
