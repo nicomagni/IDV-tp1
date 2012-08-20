@@ -14,4 +14,5 @@ public class BulletScript : MonoBehaviour {
 		gameObject.rigidbody.velocity = ship.rigidbody.velocity;
 		gameObject.rigidbody.AddForce(currentDirecction,ForceMode.Impulse);
 	}
+	
 }
