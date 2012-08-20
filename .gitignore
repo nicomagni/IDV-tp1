@@ -7,7 +7,6 @@ TestResults
 
 # Unity Library
 Asterix/Library
-<<<<<<< HEAD
 *.sln
 *.userprefs
 *.pidb
@@ -138,8 +137,3 @@ Asterix/Asterix-csharp.sln
 *.pidb
 
 Asterix/Assembly-CSharp.pidb
-=======
-Asterix/Temp/CaseSensitiveTest
-
-Asterix/Temp/__EditModeScene
->>>>>>> cambio ignore
