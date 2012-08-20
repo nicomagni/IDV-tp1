@@ -15,7 +15,8 @@ public class BulletLimitCubeScript : MonoBehaviour {
 	
 	void OnTriggerExit(Collider collider){
 		//The bullets are going out
-		collider.GetComponent("BulletPrefab").GetComponent(typeof(BulletScript));
+		BulletManagerScript bulletManagerScript = (BulletManagerScript) GameObject.FindGameObjectWithTag("BulletManager").GetComponent(typeof(BulletManagerScript));
+		bulletManagerScript.DisableBullet(collider.gameObject);
 	}
 	
 }

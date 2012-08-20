@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class BulletManager : MonoBehaviour {
+public class BulletManagerScript : MonoBehaviour {
 	
 	public int maxBullets = 100;
 	public GameObject bulletPrefab;	
@@ -23,7 +23,7 @@ public class BulletManager : MonoBehaviour {
 	void Update () {
 		if(Input.GetKeyUp(KeyCode.Space)){
 			if(unUsedBullets.Count > 0){
-				GameObject unUsedBullet = (GameObject)unUsedBullets[1];
+				GameObject unUsedBullet = (GameObject)unUsedBullets[0];
 				unUsedBullet.SetActiveRecursively(true);
 				BulletScript bullet = (BulletScript) unUsedBullet.GetComponent(typeof(BulletScript));
 				bullet.launch();
@@ -33,9 +33,12 @@ public class BulletManager : MonoBehaviour {
 		}
 	}
 	
-	void DisableBullet(GameObject bullet){
+	public void DisableBullet(GameObject bullet){
 		bullet.SetActiveRecursively(false);
-		BulletScript bullet = (BulletScript) unUsedBullet.GetComponent(typeof(BulletScript));
+		usedBullets.Remove(bullet);
+		unUsedBullets.Add(bullet);
+		print ("ENTRE" + bullet);
+//		BulletScript bullet = (BulletScript) unUsedBullet.GetComponent(typeof(BulletScript));
 	}
 	
 }
