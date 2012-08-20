@@ -31,6 +31,11 @@ public class BulletManager : MonoBehaviour {
 				unUsedBullets.Remove(unUsedBullet);
 			}
 		}
-	}	
+	}
+	
+	void DisableBullet(GameObject bullet){
+		bullet.SetActiveRecursively(false);
+		BulletScript bullet = (BulletScript) unUsedBullet.GetComponent(typeof(BulletScript));
+	}
 	
 }

@@ -13,6 +13,7 @@ public class BulletScript : MonoBehaviour {
 		gameObject.transform.rotation = ship.transform.rotation;
 		gameObject.rigidbody.velocity = ship.rigidbody.velocity;
 		gameObject.rigidbody.AddForce(currentDirecction,ForceMode.Impulse);
+		
 	}
 
 	
